@@ -1,0 +1,147 @@
+package com.yedam.java.histroy;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.yedam.app.common.DAO;
+import com.yedam.app.product.Product;
+
+public class HistoryDAO extends DAO {
+
+	// 싱글톤
+	private static HistoryDAO historyDAO = null;
+
+	private HistoryDAO() {
+	}
+
+	public static HistoryDAO getInstance() {
+		if (historyDAO == null) {
+			historyDAO = new HistoryDAO();
+		}
+		return historyDAO;
+	}
+
+	// CRUD
+	// 등록
+	public void insert(History history) {
+		try {
+			connect();
+			String sql = "INSERT INTO PRODUCT_HISTORY VALUES (?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, history.getProductId());
+			pstmt.setInt(2, history.getProductCategory());
+			pstmt.setInt(3, history.getProductAmount());
+
+			int result = pstmt.executeUpdate();
+
+			if (result > 0) {
+				System.out.println("정상적으로 등록되었습니다.");
+			} else {
+				System.out.println("정상적으로 등록되지 않았습니다.");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
+
+	// 수정 - 수량
+	public void update(History history) {
+
+		try {
+			connect();
+			String sql = "UPDATE PRODUCT SET PRODUCT_MOUNT =? WHERE product_id = ?";
+			pstmt.setInt(1, history.getProductAmount());
+			pstmt.setInt(2, history.getProductId());
+
+			int result = pstmt.executeUpdate();
+
+			if (result > 0) {
+				System.out.println("정상적으로 수정되었습니다.");
+			} else {
+				System.out.println("정상적으로 수정되지 않았습니다.");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
+
+	// 삭제
+	public void delete(int productId) {
+
+		try {
+			connect();
+			String sql = "delete from product_HISTORY WHERE product_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, productId);
+
+			int result = pstmt.executeUpdate();
+
+			if (result > 0) {
+				System.out.println("정상적으로 삭제되었습니다.");
+			} else {
+				System.out.println("정상적으로 삭제되지 않았습니다.");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
+
+	// 단건조회 - 각 상품에 대한 재고
+	public History selectOne(int productId) {
+		History his = null;
+		try {
+			connect();
+			String sql = "select * from product_history =" + productId;
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				his = new History();
+				his.setProductId(rs.getInt("product_id"));
+				his.setProductCategory(rs.getInt("product_Category"));
+				his.setProductAmount(rs.getInt("product_Amount"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return his;
+
+	}
+
+	// 전체조회 - 전체 상품의 각 재고
+//전체조회
+
+	public List<Product> selectAll() {
+		List<Product> list = new ArrayList<Product>();
+		try {
+			connect();
+			String sql = "select * from product_HISTORY order by product_id";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				Product pro = new Product();
+				pro.setProductId(rs.getInt("product_id"));
+				pro.setProductName(rs.getString("product_name"));
+				pro.setProductPrice(rs.getInt("product_price"));
+
+				list.add(pro);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
+	}
+}

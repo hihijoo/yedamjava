@@ -1,0 +1,10 @@
+package com.yedam.app.common;
+
+public class Info {
+
+	private int productId;
+	private String productName;
+	private int productCategory;
+	private int productAmount;
+	
+}

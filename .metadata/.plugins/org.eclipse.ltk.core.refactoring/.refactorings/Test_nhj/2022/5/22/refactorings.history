@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.yedam.java.test.MainTEST&apos; to &apos;MainTest&apos;&#x0D;&#x0A;- Original project: &apos;Test_nhj&apos;&#x0D;&#x0A;- Original element: &apos;com.yedam.java.test.MainTEST&apos;&#x0D;&#x0A;- Renamed element: &apos;com.yedam.java.test.MainTest&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MainTEST&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.yedam.java.test{MainTEST.java[MainTEST" matchStrategy="1" name="MainTest" qualified="false" references="true" similarDeclarations="false" stamp="1653462766775" textual="false" version="1.0"/>
+</session>

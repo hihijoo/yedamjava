@@ -1,0 +1,29 @@
+package com.yedam.java.map;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class StringTest {
+	public static void main(String[] args) {
+	Map<String, Integer> map = new HashMap<String, Integer>();
+	
+	//put - 값을 집어넣는 역할
+	map.put("신윤권", 85);
+	map.put("홍길동", 90);
+	map.put("동장군", 80);
+	
+	// entry - 두개의 클래스가 한꺼번에 들어가있다고 생각하면 됨
+	System.out.println("총 Entry 수 : "+ map.size());
+	
+	Integer returnVal = map.put("홍길동",100);
+	
+	//기존값을 체크해야함, 새로운 값을 집어넣을 순 있지만 기존값을 대체할 수는 없음
+	if(returnVal != null) {
+		System.out.println("\t기존 값 "+ returnVal);
+	}
+	System.out.println("\t홍길동 : " + map.get("홍길동"));
+	System.out.println();
+	
+	}
+	
+}

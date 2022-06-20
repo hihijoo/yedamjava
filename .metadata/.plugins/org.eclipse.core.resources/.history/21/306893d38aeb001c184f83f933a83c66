@@ -1,0 +1,39 @@
+package com.yedam.java.ch01;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+public class ReadExample {
+
+	public static void main(String[] args) throws Exception {
+		InputStream is = new FileInputStream("d:/dv/temp/test1.db");
+		while(true) {
+			//내가 읽어들인 값
+			int data = is.read();
+			//read는 값이 없을때는 -1을 반환해줌
+			if (data == -1) 
+				break;
+			System.out.println(data);
+		}
+		is.close();
+		System.out.println("===========================");
+		
+		is = new FileInputStream("d:/dv/temp/test2.db");
+		//한번에 두개를 읽겠다.
+		byte[] buffer = new byte[2]; 
+		
+		while(true) {
+			//리턴할때는 내가 몇개 까지 읽었는지 알려줌
+			int readByteNum = is.read(buffer);
+			if(readByteNum == -1) break;
+			for(int i=0; i<readByteNum; i++) {
+				System.out.println(buffer[i]);
+			}
+			System.out.println();
+		}
+		is.close();
+	
+	}
+	
+}

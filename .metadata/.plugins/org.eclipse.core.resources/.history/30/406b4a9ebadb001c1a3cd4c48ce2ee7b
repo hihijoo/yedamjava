@@ -1,0 +1,43 @@
+package com.yedam.homework;
+
+public class ProductSystem {
+
+	private Product[] list; //product라는 배열을 쓰겠다.
+	private int index; //몇개의 수인지
+	
+	public ProductSystem() {
+		index = -1;
+	}
+	//1. 상품 수 입력 
+	public void setListSize(int size) {
+		list = new Product [size];
+	}
+	//2. 상품 및 가격 입력
+	public void putProduct(String name, int price) {
+		Product product = new Product();
+		product.setName(name);
+		product.setPrice(price);
+		
+		list[++index] = product;
+	}
+	//3. 제품별 가격 출력
+	public void printList() {
+		for (int i=0; i<= index; i++) {
+			Product product = list[i];
+			System.out.println(product.getName() + " : " + product.getPrice());
+		
+			//3. 변수 선언 하지 않는 방법
+			System.out.println(list[i].getName()+ " : " + list[i].getPrice());
+		
+			// 또다른 방법
+			list[i].showInfo();
+			
+		}
+	}
+	
+
+
+	
+	//4. 분석
+
+}

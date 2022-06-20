@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.jst.ejb.ui"/>
+			<item value="org.eclipse.equinox.p2.category"/>
+			<item value="org.eclipse.jdt.ui.Java"/>
+			<item value="org.eclipse.mylyn.tasks.ui.wizards.export.category"/>
+			<item value="org.eclipse.wst.web.ui"/>
+			<item value="org.eclipse.jst.ws.creation.ui.wsexport.category"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\admin\Desktop\chap17_JDBC_03.zip"/>
+			<item value="C:\Users\admin\Desktop\chap17_JDBC_02.zip"/>
+			<item value="C:\Users\admin\Desktop\chap17_JDBC_01.zip"/>
+			<item value="C:\Users\admin\Desktop\chap14.zip"/>
+			<item value="C:\Users\admin\Desktop\chap13.zip"/>
+			<item value="C:\Users\admin\Desktop\chap13.map"/>
+			<item value="C:\Users\admin\Desktop\chap16_ramda.zip"/>
+			<item value="C:\Users\admin\Desktop\chap15_generic.zip"/>
+			<item value="C:\Users\admin\Desktop\chap12.zip"/>
+			<item value="C:\Users\admin\Desktop\Test0608.zip"/>
+			<item value="C:\Users\admin\Desktop\chap11.zip"/>
+			<item value="C:\Users\admin\Desktop\chap10.zip"/>
+			<item value="C:\Users\admin\Desktop\chap09.zip"/>
+			<item value="C:\Users\admin\Desktop\chap08.zip"/>
+			<item value="C:\Users\admin\Desktop\chap07.zip"/>
+			<item value="C:\Users\admin\Desktop\5.25.zip"/>
+			<item value="C:\Users\admin\Desktop\JAVA2.zip"/>
+			<item value="C:\Users\admin\Desktop\JAVA.zip"/>
+			<item value="C:\Users\admin\Desktop\chap03.zip"/>
+			<item value="C:\Users\admin\Desktop\ㄹ.zip"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="ZipFileImportWizard">
+		<item key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\admin\Desktop\ch05.zip"/>
+		</list>
+	</section>
+</section>

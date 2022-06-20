@@ -1,0 +1,13 @@
+package com.yedam.java.dep;
+
+import java.util.Scanner;
+
+public class DepSystem {
+
+	private DepDAO dao = DepDAO.getInstanc();
+	private Scanner sc = new Scanner(System.in);
+	
+	public DepSystem() {
+		
+	}
+}

@@ -1,0 +1,75 @@
+package com.yedam.app.product;
+
+import java.sql.SQLException;
+
+import com.yedam.app.common.DAO;
+
+public class ProductDAO extends DAO {
+
+	//싱글톤
+	private static ProductDAO productDAO = null;
+	private ProductDAO() {}
+	public static ProductDAO getInstance() {
+		if(productDAO == null) {
+			productDAO = new ProductDAO();
+			
+		}
+		return productDAO;
+	}
+	
+	
+	//CRUD
+	//등록
+	public void insert(Product product) {
+		try {
+			connect();
+			String sql = "INSERT INTO PRODUCT VALUES (PRODUCT_SEQ.nextval,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, product.getProductName());
+			pstmt.setInt(2, product.getProductPrice());
+			
+			int result = pstmt.executeUpdate();
+			
+			if(result>0) {
+				System.out.println("정상적으로 등록되었습니다.");
+			} else {
+				System.out.println("정상적으로 등록되지 않았습니다.");
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+	}
+	//수정 -가격
+	public void update(Product product) {
+		
+		try {
+			connect();
+			String sql = "UPDATE PRODUCT SET PRODUCT_PRICE =? WHERE product_id = ?";
+			pstmt.setInt(1, product.getProductPrice());
+			pstmt.setInt(2, product.getProductId());
+			
+			int result = pstmt.executeUpdate();
+			
+			if(result>0) {
+				System.out.println("정상적으로 등록되었습니다.");
+			} else {
+				System.out.println("정상적으로 등록되지 않았습니다.");
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect()
+		}
+	}
+	
+	//삭제
+	
+	//단건조회 - 제품번호
+	//단건조회 - 제품이름
+	
+	//전체조회
+	
+}
