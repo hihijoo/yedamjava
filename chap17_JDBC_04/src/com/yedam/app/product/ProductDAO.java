@@ -8,6 +8,17 @@ import com.yedam.app.common.DAO;
 
 public class ProductDAO extends DAO {
 	
+	//싱글톤
+	private static ProductDAO productDAO = null;
+	private ProductDAO(){}
+	public static ProductDAO getInstance() {
+		if(productDAO == null) {
+			productDAO = new ProductDAO();
+		}
+		return productDAO;
+	}
+	
+	
 	//등록
 	public void insert(Product product) {
 		try {
@@ -32,7 +43,7 @@ public class ProductDAO extends DAO {
 	}
 	
 	//수정 -재고
-	public void update(Product product) {
+	public void updateStock(Product product) {
 		try {
 			connect();				//문장 끝날때 마다 공백 신경쓰기
 			String sql = "UPDATE products " + "SET product_stock = " +product.getProductStock()+ "where product_id = "+product.getProductId();
@@ -51,6 +62,32 @@ public class ProductDAO extends DAO {
 		}
 	
 	}
+	
+	//수정 - 재고제외(이름, 가격에 대한 수정)
+	public void updateInfo(Product product) {
+		try {
+			connect();											//콤마 중요
+			String sql = "UPDATE products " + "SET product_name = ?, " +"product_price = ? "+"where product_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, product.getProductName());
+			pstmt.setInt(2, product.getProductPrice());
+			pstmt.setInt(3, product.getProductId());
+			
+			int result = stmt.executeUpdate(sql);
+			
+			if (result>0) {
+				System.out.println("정상적으로 수정되었습니다.");
+			}else {
+				System.out.println("정상적으로 수정되지 않았습니다.");
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+	
+	}
+	
 	
 	//삭제
 	public void delete(int productId) {

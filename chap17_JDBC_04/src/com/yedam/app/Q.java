@@ -9,6 +9,16 @@ public class Q {
 	 * 4. 거래내역 조회
 	 * 	(1) 입고내역 (2) 출고내역 (3) 한제품
 	 * 
+	 * 
+	 * 
+	 * 
+	 *    ┌-Info-┐ ------>   	ProductDAO            	 ┌--Stock--┐
+          |      |         		 (제품정보)                 | (입출고)  |
+          |      |     		 RecivingGoodsDAO   <------  |     +   |
+          └------┘     		 TakeOutGoodsDAO    <------  | (제품정보) |
+                                             			 └---------┘
+             
+	 * 
 	 */
 
 }
