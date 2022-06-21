@@ -6,7 +6,7 @@ public class DealInfo {
 	
 	private Date dealDate;
 	private int productId;
-	private String productName;
+	private String productName; //sql 문을 보면 prodcut에서 name을 조인할거기 때문에 선언해준것
 	private int productAmount;
 	
 

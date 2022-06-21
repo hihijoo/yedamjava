@@ -98,7 +98,7 @@ public class ReceivingGoodsDAO extends DAO{
 		try {
 			connect();
 			String sql =  "SELECT r.DEAL_DATE, r.PRODUCT_id, p.PRODUCT_NAME, r.product_amount " + 
-						"from product p " + "JOIN receiving_goods r" + "on p.product_id = r.product_id " + 
+						"from products p " + "JOIN receiving_goods r" + "on p.product_id = r.product_id " + 
 						"order by r.deal_date";
 		
 			pstmt = conn.prepareStatement(sql);

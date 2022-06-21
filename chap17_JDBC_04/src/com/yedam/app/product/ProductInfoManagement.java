@@ -38,9 +38,9 @@ public class ProductInfoManagement extends Management{
 	
 	@Override
 	protected void menuPrint() {
-		System.out.println("=================================");
+		System.out.println("================================");
 		System.out.println("1.제품등록 2.제품수정 3.제품삭제 9.뒤로가기");
-		System.out.println("=================================");
+		System.out.println("================================");
 	}
 	
 	private void back() {

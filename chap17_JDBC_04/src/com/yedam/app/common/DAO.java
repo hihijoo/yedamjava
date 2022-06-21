@@ -18,7 +18,7 @@ public class DAO {
 	private String connectedId;
 	private String connectedPwd;
 	
-	//공통으로 사용되는 필드
+	//공통으로 사용되는 필드 - 
 	protected Connection conn;
 	protected Statement stmt;
 	protected PreparedStatement pstmt;
