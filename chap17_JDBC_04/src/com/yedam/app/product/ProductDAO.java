@@ -23,7 +23,7 @@ public class ProductDAO extends DAO {
 	public void insert(Product product) {
 		try {
 			connect();
-			String sql = "INSERT INTO PRODUCTS VALUES (PRODUCT_ID, PRODUCT_NAME, PRODUCT_PRICE)"+"VALUES (PRODUCTS_SEQ.NEXTVAL, ?,?)";
+			String sql = "INSERT INTO PRODUCTS (PRODUCT_ID, PRODUCT_NAME, PRODUCT_PRICE) "+"VALUES (PRODUCTS_SEQ.NEXTVAL,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, product.getProductName());
 			pstmt.setInt(2, product.getProductPrice());
@@ -51,9 +51,9 @@ public class ProductDAO extends DAO {
 			int result = stmt.executeUpdate(sql);
 			
 			if (result>0) {
-				System.out.println("정상적으로 수정되었습니다.");
+				System.out.println("재고가 수정되었습니다.");
 			}else {
-				System.out.println("정상적으로 수정되지 않았습니다.");
+				System.out.println("재고가 정상적으로 수정되지 않았습니다.");
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -73,7 +73,7 @@ public class ProductDAO extends DAO {
 			pstmt.setInt(2, product.getProductPrice());
 			pstmt.setInt(3, product.getProductId());
 			
-			int result = stmt.executeUpdate(sql);
+			int result = pstmt.executeUpdate();
 			
 			if (result>0) {
 				System.out.println("정상적으로 수정되었습니다.");

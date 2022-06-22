@@ -44,36 +44,9 @@ public class TakeOutGoodsDAO extends DAO {
 	
 	}
 	
-	//단건 조회 - 출고내역 존재유무
-	public boolean selectInfo(int productId) {
-		boolean isSelected = false;
-		try {
-			connect();
-			String sql = "select count(*) as count " + 
-						"from take_out_goods " + 
-						"where product_id = "+ productId;
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			
-			if(rs.next()) {
-				if(rs.getInt("count")>0) {
-					isSelected = true;
-				}
-			}
-			
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			disconnect();
-		}
-
-		return isSelected;
-	}
-	
 	//단건 조회 - 출고수량
-	public int selectAmount(int productId ) {
+	public int selectAmount(int productId) {
 		int amount = 0;
-		
 		try {
 			connect();
 			String sql = "select nvl(sum(product_amount),0) " + 
@@ -99,8 +72,8 @@ public class TakeOutGoodsDAO extends DAO {
 		List<DealInfo> list = new ArrayList<>();
 		try {
 			connect();
-			String sql = "SELECT r.DEAL_DATE, t.PRODUCT_id, p.PRODUCT_NAME, t.product_amount " + 
-					"from products p " + "JOIN take_out_goods t" + "on p.product_id = t.product_id " + 
+			String sql = "SELECT t.DEAL_DATE, t.PRODUCT_id, p.PRODUCT_NAME, t.product_amount " + 
+					"from products p " + "JOIN take_out_goods t" + " on p.product_id = t.product_id " + 
 					"order by t.deal_date";
 	
 			pstmt = conn.prepareStatement(sql);
@@ -156,7 +129,7 @@ public class TakeOutGoodsDAO extends DAO {
 		return list;
 	}
 	
-	//전체 조회 - 해당 제품의 입고된 내역
+	//전체 조회 - 해당 제품의 출고된 내역
 	public List<DealInfo> selectAll(int productId) {
 		List<DealInfo> list = new ArrayList<>();
 		

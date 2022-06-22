@@ -24,7 +24,7 @@ public class ReceivingGoodsDAO extends DAO{
 	public void insert(DealInfo info) {
 		try {
 			connect();
-			String sql = "INSERT INTO RECIEVING_GOODS " + "(PRODUCT_ID, PRODUCT_AMOUNT) "+ "VALUES ( ?, ?)";
+			String sql = "INSERT INTO RECEIVING_GOODS " + "(PRODUCT_ID, PRODUCT_AMOUNT) "+ "VALUES (?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1,info.getProductId());
 			pstmt.setInt(2, info.getProductAmount());
@@ -73,7 +73,7 @@ public class ReceivingGoodsDAO extends DAO{
 		int amount = 0;
 		try {
 			connect();
-			String sql = "SELECT NVL(SUM(PRODUCT_AMOUNT),0) AS SUM " + "FROM RECIVING_GOODS " + "WHERE PRODUCT_ID = " +productId;
+			String sql = "SELECT NVL(SUM(PRODUCT_AMOUNT),0) AS SUM " + "FROM RECEIVING_GOODS " + "WHERE PRODUCT_ID = " +productId;
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
@@ -98,11 +98,11 @@ public class ReceivingGoodsDAO extends DAO{
 		try {
 			connect();
 			String sql =  "SELECT r.DEAL_DATE, r.PRODUCT_id, p.PRODUCT_NAME, r.product_amount " + 
-						"from products p " + "JOIN receiving_goods r" + "on p.product_id = r.product_id " + 
-						"order by r.deal_date";
+						" from products p " + " JOIN receiving_goods r " + " on p.product_id = r.product_id " + 
+						" order by r.deal_date";
 		
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				DealInfo info = new DealInfo();
 				info.setDealDate(rs.getDate("deal_date"));
