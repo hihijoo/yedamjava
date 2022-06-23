@@ -1,5 +1,11 @@
 package com.yedam.app.members;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+
 public class Member {
 
 	private String memberId;
@@ -9,30 +15,6 @@ public class Member {
 	private int memberRole;
 
 	
-	public String getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
-	}
-
-	public String getMemberPassword() {
-		return memberPassword;
-	}
-
-	public void setMemberPassword(String memberPassword) {
-		this.memberPassword = memberPassword;
-	}
-
-	public int getMemberRole() {
-		return memberRole;
-	}
-
-	public void setMemberRole(int memberRole) {
-		this.memberRole = memberRole;
-	}
-
 	@Override
 	public String toString() {
 		String info = "";
