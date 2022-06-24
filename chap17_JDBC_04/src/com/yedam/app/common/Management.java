@@ -18,7 +18,7 @@ public class Management {
 	
 	//생성자 --상속클래스가 있을경우 기존 생성자를 사용하지 말고 run 메소드를 사용해라
 	public void run() { 
-		boolean role = selectRole();
+		boolean role = selectRole(); //0이여야지 관리자 실행됨
 		
 		while(true) {
 			menuPrint();

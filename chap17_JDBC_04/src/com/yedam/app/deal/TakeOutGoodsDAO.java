@@ -138,7 +138,6 @@ public class TakeOutGoodsDAO extends DAO {
 			String sql = "SELECT t.deal_date, t.product_id, p.product_name, t.product_amount" 
 		               + " FROM products p JOIN take_out_goods t "
 		               + "ON p.product_id = t.product_id WHERE product_id = ? ORDER BY t.deal_date";
-
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, productId);
 			rs = pstmt.executeQuery();

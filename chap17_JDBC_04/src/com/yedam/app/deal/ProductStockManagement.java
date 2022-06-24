@@ -92,10 +92,7 @@ public class ProductStockManagement extends Management {
 		
 	}
 		
-		
 	
-	
-
 	private DealInfo inputAmount() {
 		DealInfo info = new DealInfo();
 		
