@@ -153,6 +153,7 @@ public class ProductStockManagement extends Management {
 		}else if(choice ==2) {
 			list = tDAO.selectAll();
 		}
+		//to string 사용하는것
 		for (DealInfo info : list) {
 			System.out.println(info);
 		}
